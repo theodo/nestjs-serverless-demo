@@ -1,0 +1,34 @@
+{
+  "name": "nest-serverless-demo",
+  "version": "1.0.0",
+  "description": "Nest TypeScript demo with Serverless framework",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "ts-node src/main",
+    "prestart:prod": "npm run build",
+    "start:prod": "node dist/main.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "6.2.2",
+    "@nestjs/core": "6.2.2",
+    "@nestjs/platform-express": "6.2.2",
+    "@nestjs/typeorm": "6.1.1",
+    "aws-serverless-express": "^3.3.5",
+    "mysql": "2.17.1",
+    "pg": "^7.11.0",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "6.5.2",
+    "typeorm": "0.2.17",
+    "typescript": "3.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "7.10.6",
+    "ts-node": "8.1.0",
+    "tslint": "5.16.0",
+    "@hewmen/serverless-plugin-typescript": "^1.1.17",
+    "@types/aws-lambda": "^8.10.15",
+    "serverless-offline": "^3.31.3",
+    "serverless-plugin-optimize": "^4.0.2-rc.1"
+  }
+}
