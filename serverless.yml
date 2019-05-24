@@ -27,7 +27,4 @@ functions:
     events:
       - http:
           method: any
-          path: /
-      - http:
-          method: any
-          path: /{proxy+}
+          path: /{any+}
