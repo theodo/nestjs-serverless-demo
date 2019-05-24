@@ -5,7 +5,10 @@ import { createServer, proxy } from 'aws-serverless-express';
 import { eventContext } from 'aws-serverless-express/middleware';
 
 import { NestFactory } from '@nestjs/core';
-import { ApplicationModule } from './app.module';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import { AppModule } from './app.module';
+
+const express = require('express');
 
 // NOTE: If you get ERR_CONTENT_DECODING_FAILED in your browser, this is likely
 // due to a compressed response (e.g. gzip) which has not been handled correctly
@@ -17,18 +20,16 @@ let cachedServer: Server;
 
 async function bootstrapServer(): Promise<Server> {
  if (!cachedServer) {
-   try {
-     const expressApp = require('express')();
-     const nestApp = await NestFactory.create(ApplicationModule, expressApp);
-     nestApp.use(eventContext());
-     await nestApp.init();
-     cachedServer = createServer(nestApp, undefined, binaryMimeTypes);
-   }
-   catch (error) {
-     return Promise.reject(error);
-   }
+    const expressApp = express();
+    console.error("First We are here")
+    const nestApp = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
+    console.error("We are here1")
+    nestApp.use(eventContext());
+    console.error("We are here")
+    await nestApp.init();
+    cachedServer = createServer(expressApp, undefined, binaryMimeTypes);
  }
- return Promise.resolve(cachedServer);
+ return cachedServer;
 }
 
 export const handler: Handler = async (event: any, context: Context) => {

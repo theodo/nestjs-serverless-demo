@@ -16,16 +16,18 @@ provider:
   name: aws
   runtime: nodejs8.10
 
-package:
-  individually: true
-  include:
-    - dist/photo/photo.entity.js
+# package:
+#   individually: true
+#   include:
+#     - dist/photo/photo.entity.js
 
 functions:
   main:
     handler: src/lambda.handler
     events:
       - http:
-          method: get
-          path: /photo
-          cors: true
+          method: any
+          path: /
+      - http:
+          method: any
+          path: /{proxy+}
