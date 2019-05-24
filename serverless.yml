@@ -1,5 +1,5 @@
 service:
-  name: nest-serverless-demo
+  name: nest-db-serverless-demo-2
 
 plugins:
   - '@hewmen/serverless-plugin-typescript'
@@ -27,4 +27,4 @@ functions:
     events:
       - http:
           method: any
-          path: /{any+}
+          path: /{proxy+}

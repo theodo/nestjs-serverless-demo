@@ -9,6 +9,7 @@ export class PhotoController {
   @Get()
   findAll(): Promise<Photo[]> {
     console.error('Pass in Photo Controller findAll');
+    console.error("This photservice", this.photoService);
     return this.photoService.findAll();
   }
 }

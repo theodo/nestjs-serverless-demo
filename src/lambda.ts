@@ -18,6 +18,14 @@ const binaryMimeTypes: string[] = [];
 
 let cachedServer: Server;
 
+process.on('unhandledRejection', (reason) => {
+  console.error(reason);
+});
+
+process.on('uncaughtException', (reason) => {
+  console.error(reason);
+});
+
 async function bootstrapServer(): Promise<Server> {
  if (!cachedServer) {
     const expressApp = express();

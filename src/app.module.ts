@@ -4,10 +4,22 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PhotoModule } from './photo/photo.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Photo } from './photo/photo.entity'
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot({
+      "type": "postgres",
+      "host": "nestjs-auth-db.cnwkyvzcifyp.us-east-1.rds.amazonaws.com",
+      "port": 5432,
+      "username": "jeand",
+      "password": "klmserverless",
+      "database": "authApi",
+      "entities": [Photo],
+      "synchronize": true,
+      "keepConnectionAlive": true,
+      "logging": ["query", "error", "log", "warn", "info", "schema"]
+    }),
     PhotoModule
   ],
   controllers: [AppController],
