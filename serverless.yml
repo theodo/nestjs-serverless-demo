@@ -1,5 +1,5 @@
 service:
-  name: nest-serverless-demo
+  name: nest-serverless-framework-demo
 
 plugins:
   - '@hewmen/serverless-plugin-typescript'
@@ -22,8 +22,8 @@ provider:
 #     - dist/photo/photo.entity.js
 
 functions:
-  main:
-    handler: src/lambda.handler
+  main: # The name of the lambda function
+    handler: src/lambda.handler # The module 'handler' is exported in the file 'src/lambda'
     events:
       - http:
           method: any

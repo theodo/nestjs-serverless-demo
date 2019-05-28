@@ -3,17 +3,14 @@ import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {
-    console.error("We are here inside App module")
-    console.error("App service", AppService)
-  }
+  constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('hello/en')
   getHello(): string {
     return this.appService.getHello();
   }
 
-  @Get('hello')
+  @Get('hello/fr')
   getBonjour(): string {
     return this.appService.getBonjour();
   }

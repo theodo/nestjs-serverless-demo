@@ -21,11 +21,8 @@ let cachedServer: Server;
 async function bootstrapServer(): Promise<Server> {
  if (!cachedServer) {
     const expressApp = express();
-    console.error("First We are here")
     const nestApp = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
-    console.error("We are here1")
     nestApp.use(eventContext());
-    console.error("We are here")
     await nestApp.init();
     cachedServer = createServer(expressApp, undefined, binaryMimeTypes);
  }
