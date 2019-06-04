@@ -5,9 +5,11 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "start": "ts-node src/main",
     "prestart:prod": "npm run build",
-    "start:prod": "node dist/main.js"
+    "start:prod": "node dist/main.js",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json"
   },
   "dependencies": {
     "@nestjs/common": "6.2.2",

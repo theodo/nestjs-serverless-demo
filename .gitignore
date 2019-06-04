@@ -1,6 +1,6 @@
 .serverless/
 
-.dist/
+dist/
 
 node_modules/
 
