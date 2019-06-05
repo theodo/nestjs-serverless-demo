@@ -12,11 +12,11 @@ import "./typeorm-patch";
   imports: [
     TypeOrmModule.forRoot({
       "type": "postgres",
-      "host": "nestjs-auth-db.cnwkyvzcifyp.us-east-1.rds.amazonaws.com",
+      "host": process.env.TYPEORM_HOST,
       "port": 5432,
-      "username": "jeand",
-      "password": "klmserverless",
-      "database": "authApi",
+      "username": process.env.TYPEORM_USERNAME,
+      "password": process.env.TYPEORM_PASSWORD,
+      "database": process.env.TYPEORM_DATABASE,
       "entities": [Photo],
       "synchronize": true,
       "keepConnectionAlive": true,

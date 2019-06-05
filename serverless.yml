@@ -16,10 +16,11 @@ provider:
   name: aws
   runtime: nodejs8.10
 
-# package:
-#   individually: true
-#   include:
-#     - dist/photo/photo.entity.js
+package:
+  individually: true
+  include:
+    - .env.example
+    - .env
 
 functions:
   main:

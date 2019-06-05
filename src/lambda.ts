@@ -1,4 +1,7 @@
 // lambda.ts
+import * as dotenv from 'dotenv-safe';
+dotenv.config();
+
 import { Handler, Context } from 'aws-lambda';
 import { Server } from 'http';
 import { createServer, proxy } from 'aws-serverless-express';
@@ -17,6 +20,8 @@ const express = require('express');
 const binaryMimeTypes: string[] = [];
 
 let cachedServer: Server;
+
+console.error("******************", process.env.ENV)
 
 process.on('unhandledRejection', (reason) => {
   console.error(reason);

@@ -1,5 +1,7 @@
 .serverless/
 
+.env
+
 dist/
 
 node_modules/
