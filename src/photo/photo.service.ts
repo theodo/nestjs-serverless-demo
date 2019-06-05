@@ -15,4 +15,9 @@ export class PhotoService {
     console.error('this.photoRepository',this.photoRepository)
     return await this.photoRepository.find();
   }
+
+  async createPhoto(photo: Photo) {
+    const createdPhoto = await this.photoRepository.save(photo);
+    return createdPhoto;
+  }
 }

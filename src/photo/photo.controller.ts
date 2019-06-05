@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { PhotoService } from './photo.service';
 import { Photo } from './photo.entity';
 
@@ -11,5 +11,10 @@ export class PhotoController {
     console.error('Pass in Photo Controller findAll');
     console.error("This photservice", this.photoService);
     return this.photoService.findAll();
+  }
+
+  @Post()
+  create(@Body() photo: Photo) {
+    return this.photoService.createPhoto(photo);
   }
 }
