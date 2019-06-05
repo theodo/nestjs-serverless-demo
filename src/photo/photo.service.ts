@@ -13,12 +13,6 @@ export class PhotoService {
 
   async findAll(): Promise<Photo[]> {
     console.error('this.photoRepository',this.photoRepository)
-    let dataToReturn = await this.photoRepository.find();
-    console.error('dataToReturn :', dataToReturn);
-    const connection = await getConnection();
-    console.error('final connection :', connection);
-    let connectionClose = await connection.close();
-    console.error('connectionClose :', connectionClose);
-    return dataToReturn;
+    return await this.photoRepository.find();
   }
 }

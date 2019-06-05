@@ -6,6 +6,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Photo } from './photo/photo.entity'
 
+import "./typeorm-patch";
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
