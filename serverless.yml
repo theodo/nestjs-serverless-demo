@@ -1,5 +1,5 @@
 service:
-  name: nest-db-serverless-demo-2
+  name: nest-db-serverless-secure-demo
 
 plugins:
   - '@hewmen/serverless-plugin-typescript'
@@ -15,6 +15,16 @@ plugins:
 provider:
   name: aws
   runtime: nodejs8.10
+  vpc:
+    securityGroupIds:
+      - sg-0c9cfecd55b267862
+    subnetsIds:
+      - subnet-067a92a00005a4217
+      - subnet-051379b2db4da8451
+      - subnet-091db9f98f2868228
+      - subnet-0d05289666dfeb8ed
+      - subnet-022d0ec7ffb9e3f8d
+      - subnet-02d8b26fa0febfc71
 
 package:
   individually: true

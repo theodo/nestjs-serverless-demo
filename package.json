@@ -4,6 +4,11 @@
   "description": "Nest TypeScript demo with Serverless framework",
   "license": "MIT",
   "scripts": {
+    "migration:generate": "ts-node node_modules/.bin/typeorm migration:generate",
+    "migration:revert": "ts-node node_modules/.bin/typeorm migration:revert",
+    "migration:run": "ts-node node_modules/.bin/typeorm migration:run",
+    "migration:create": "",
+    "test:migration:run": "ts-node -r dotenv-safe/config node_modules/.bin/typeorm migration:run dotenv_config_path=.env.test",
     "build": "tsc -p tsconfig.build.json",
     "prestart:prod": "npm run build",
     "start:prod": "node dist/main.js",
